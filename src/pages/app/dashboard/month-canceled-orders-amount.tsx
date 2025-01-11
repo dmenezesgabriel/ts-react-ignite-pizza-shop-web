@@ -4,6 +4,8 @@ import { DollarSign } from "lucide-react";
 import { getMonthCancelledAmount } from "@/api/get-month-cancelled-orders-amount";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
+import { MetricCardSkeleton } from "./metric-card-skeleton";
+
 export function MonthCanceledOrdersAmountCard() {
   const { data: monthCancelledAmount } = useQuery({
     queryFn: getMonthCancelledAmount,
@@ -19,7 +21,7 @@ export function MonthCanceledOrdersAmountCard() {
         <DollarSign className="h-4 w-4 text-muted-foreground" />
       </CardHeader>
       <CardContent className="space-y-1">
-        {monthCancelledAmount && (
+        {monthCancelledAmount ? (
           <>
             <span className="text-2xl font-bold tracking-tight">
               {monthCancelledAmount?.amount.toLocaleString("pt-BR")}
@@ -43,6 +45,8 @@ export function MonthCanceledOrdersAmountCard() {
               )}
             </p>
           </>
+        ) : (
+          <MetricCardSkeleton />
         )}
       </CardContent>
     </Card>
