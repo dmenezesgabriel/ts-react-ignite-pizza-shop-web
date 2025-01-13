@@ -80,7 +80,7 @@ export function SignUp() {
             className="flex flex-col gap-4"
           >
             <div className="space-y-4">
-              <Label htmlFor="restaurantName">Estabelecimento</Label>
+              <Label htmlFor="restaurantName">Nome do Estabelecimento</Label>
               <Input
                 id="restaurantName"
                 type="text"
