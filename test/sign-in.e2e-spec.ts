@@ -11,7 +11,7 @@ test("sign in successfully", async ({ page }) => {
     "Enviamos um link de autenticação para o seu e-mail",
   );
 
-  expect(toast).toBeVisible();
+  await expect(toast).toBeVisible();
 
   // await page.waitForTimeout(2000);
 });
@@ -25,7 +25,7 @@ test("sign in with wrong credentials", async ({ page }) => {
 
   const toast = page.getByText("Credenciais invalidas");
 
-  expect(toast).toBeVisible();
+  await expect(toast).toBeVisible();
 
   // await page.waitForTimeout(2000);
 });
